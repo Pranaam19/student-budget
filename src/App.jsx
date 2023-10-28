@@ -5,6 +5,7 @@ import Home from "./assets/pages/home";
 import Transaction from "./assets/pages/transaction";
 import Budget from "./assets/pages/budget";
 import Balance from "./assets/pages/balance";
+import Authentication from "./assets/pages/auth";
 import BottomNavbar from "./assets/components/navbar";
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
         </h1>
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Authentication />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/transaction" element={<Transaction />} />
             <Route path="/budget" element={<Budget />} />
             <Route path="/balance" element={<Balance />} />
