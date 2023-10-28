@@ -12,10 +12,10 @@ function Budget() {
         <div className="budget">
           <div className="balance">
             <h3 className="text-2xl font-semibold">
-              Balance: ${customBalance}
+              Balance: Rs{customBalance}
             </h3>
             <h3 className="text-2xl font-semibold">
-              Budget: ${customBudget}
+              Budget: Rs{customBudget}
             </h3>
           </div>
         </div>
@@ -65,6 +65,12 @@ function Budget() {
               placeholder="Amount"
               className="w-full p-2 rounded border"
             />
+            <button
+              type="submit"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold p-2 rounded"
+            >
+              Add Transaction
+            </button>
           </form>
         </div>
       </div>
