@@ -38,7 +38,7 @@ function BottomNavbar() {
   return (
     <AppBar position="fixed" sx={{ top: "auto", bottom: 0 }}>
       <Toolbar>
-        <Button color="inherit" href="/">
+        <Button color="inherit" href="/home">
           Home
         </Button>
         <Button color="inherit" href="/budget">

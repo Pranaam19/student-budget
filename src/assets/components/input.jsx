@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import DateComponent from "./date";
+// import { useAuth } from "../firebase/auth";
+// import DateComponent from "./date";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+// import { MobileDateTimePicker } from "@mui/x-date-pickers";
+import { DatePicker } from "@mui/x-date-pickers";
 import {
   Dialog,
   DialogTitle,
@@ -15,7 +20,9 @@ import {
   Radio,
   FormLabel,
   FormControl,
+  Stack,
 } from "@mui/material";
+import { addReceipt } from "../firebase/firestore";
 
 function ExpenseInput(props) {
   const [open, setOpen] = useState(false);
@@ -29,14 +36,15 @@ function ExpenseInput(props) {
     setOpen(false);
   };
 
-  const handleSave = () => {
-    props.onSave(expense);
-    setExpense("");
-    handleClose();
-  };
+  //   const handleExpenseChange = (event) => {
+  //     setExpense(event.target.value);
+  //   };
 
-  const handleExpenseChange = (event) => {
-    setExpense(event.target.value);
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+
+    // try{
+    //    await addReceipt({ formFields.date});
   };
 
   return (
@@ -47,22 +55,26 @@ function ExpenseInput(props) {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add Expense</DialogTitle>
         <DialogContent>
-          {/* <FormControl> */}
-          <FormLabel id="row-radio-buttons-group-label">Expense</FormLabel>
-          <RadioGroup
-            row
-            aria-labelledby="row-radio-buttons-group-label"
-            defaultValue="credit"
-            name="row-radio-buttons-group"
-          >
-            <FormControlLabel
-              value="credit"
-              control={<Radio />}
-              label="Credit"
-            />
-            <FormControlLabel value="debit" control={<Radio />} label="Debit" />
-          </RadioGroup>
-          {/* </FormControl> */}
+          <FormControl>
+            <FormLabel id="row-radio-buttons-group-label">Expense</FormLabel>
+            <RadioGroup
+              row
+              aria-labelledby="row-radio-buttons-group-label"
+              defaultValue="credit"
+              name="row-radio-buttons-group"
+            >
+              <FormControlLabel
+                value="credit"
+                control={<Radio />}
+                label="Credit"
+              />
+              <FormControlLabel
+                value="debit"
+                control={<Radio />}
+                label="Debit"
+              />
+            </RadioGroup>
+          </FormControl>
           {/* <FormControl> */}
           <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
           <OutlinedInput
@@ -82,7 +94,24 @@ function ExpenseInput(props) {
             margin="normal"
           />
           {/* </FormControl> */}
-          <DateComponent />
+          <Stack>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                label="Date"
+                // value={formFields.date}
+                // onChange={(newDate) => {
+                //   setFormFields((prevState) => ({
+                // ...prevState,
+                // date: newDate,
+                //   }));
+                // }}
+                // maxDate={new Date()}
+                // renderInput={(params) => (
+                //   <TextField color="tertiary" {...params} />
+                // {/* )} */}
+              />
+            </LocalizationProvider>
+          </Stack>
         </DialogContent>
 
         {/* <DialogContent>
@@ -101,8 +130,8 @@ function ExpenseInput(props) {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleSave} color="primary">
-            Save
+          <Button onClick={handleSubmit} color="primary">
+            Submit
           </Button>
         </DialogActions>
       </Dialog>
