@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DateComponent from "./date";
 import {
   Dialog,
   DialogTitle,
@@ -65,14 +66,23 @@ function ExpenseInput(props) {
           {/* <FormControl> */}
           <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
           <OutlinedInput
+            fullWidth
             id="outlined-adornment-amount"
             startAdornment={<InputAdornment position="start">₹</InputAdornment>}
             label="Amount"
+            margin="normal"
           />
           {/* </FormControl> */}
           {/* <FormControl> */}
-          <TextField id="outlined-basic" label="Reason" variant="outlined" />
+          <TextField
+            fullWidth
+            id="outlined-basic"
+            label="Reason"
+            variant="outlined"
+            margin="normal"
+          />
           {/* </FormControl> */}
+          <DateComponent />
         </DialogContent>
 
         {/* <DialogContent>
