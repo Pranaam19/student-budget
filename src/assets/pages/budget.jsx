@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 function Budget() {
-  const [transactions, setTransactions] = useState([]);
   const [customBalance, setCustomBalance] = useState(1000);
   const [customBudget, setCustomBudget] = useState(500);
 
@@ -19,59 +18,9 @@ function Budget() {
             </h3>
           </div>
         </div>
-        <div className="transactions">
-          <h2 className="text-xl font-semibold">Transaction History</h2>
-          <ul className="space-y-2">
-            {transactions.map((transaction) => (
-              <li
-                key={transaction.id}
-                className="p-2 rounded border bg-white"
-              >
-                {transaction.text} ${transaction.amount}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="add-transaction">
-          <h2 className="text-xl font-semibold">Add New Transaction</h2>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              const text = e.target.text.value;
-              const amount = +e.target.amount.value;
-              if (text && amount) {
-                const newTransaction = {
-                  id: Math.floor(Math.random() * 1000000),
-                  text,
-                  amount,
-                };
-                setTransactions([...transactions, newTransaction]);
-                setCustomBalance(customBalance - amount);
-                setCustomBudget(customBudget - amount);
-                e.target.text.value = "";
-                e.target.amount.value = "";
-              }
-            }}
-          >
-            <input
-              type="text"
-              name="text"
-              placeholder="Transaction Name"
-              className="w-full p-2 rounded border"
-            />
-            <input
-              type="number"
-              name="amount"
-              placeholder="Amount"
-              className="w-full p-2 rounded border"
-            />
-            <button
-              type="submit"
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold p-2 rounded"
-            >
-              Add Transaction
-            </button>
-          </form>
+        <div className="expense-options">
+          <h2 className="text-xl font-semibold">Expense Options</h2>
+          {/* Add your expense options here */}
         </div>
       </div>
     </div>
