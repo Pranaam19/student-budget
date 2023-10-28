@@ -2,33 +2,27 @@ import React from "react";
 
 function BottomNavbar() {
   return (
-    <nav
-      style={{
-        position: "fixed",
-        bottom: 0,
-        width: "100%",
-        backgroundColor: "lightgray",
-      }}
-    >
-      <ul
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          listStyle: "none",
-          padding: 0,
-        }}
-      >
+    <nav className="fixed bottom-0 w-full bg-gray-300">
+      <ul className="flex justify-around list-none p-0">
         <li>
-          <a href="#">Home</a>
+          <a href="/" className="block py-2 px-4">
+            Home
+          </a>
         </li>
         <li>
-          <a href="#">Budget</a>
+          <a href="/budget" className="block py-2 px-4">
+            Budget
+          </a>
         </li>
         <li>
-          <a href="#">Balance</a>
+          <a href="/balance" className="block py-2 px-4">
+            Balance
+          </a>
         </li>
         <li>
-          <a href="#">Transaction</a>
+          <a href="/transaction" className="block py-2 px-4">
+            Transaction
+          </a>
         </li>
       </ul>
     </nav>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./assets/pages/home";
 import Transaction from "./assets/pages/transaction";
 import Budget from "./assets/pages/budget";
@@ -14,6 +14,15 @@ function App() {
         <h1 className="text-2xl font-bold text-center">
           Student Budget Tracker
         </h1>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/transaction" element={<Transaction />} />
+            <Route path="/budget" element={<Budget />} />
+            <Route path="/balance" element={<Balance />} />
+          </Routes>
+        </Router>
+        <BottomNavbar />
       </div>
     </>
   );
