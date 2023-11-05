@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import InputDialog from "../components/input";
+// import InputDialog from "../components/input";
+import Input from "../components/input3";
 
 function Home() {
   const [balance, setBalance] = useState(500); // Initial balance, you can change this as needed
@@ -30,7 +31,7 @@ function Home() {
             RS{balance.toFixed(2)}
           </p>
           <div className="flex justify-between mt-2">
-            <InputDialog />
+            <Input />
           </div>
         </div>
         <div className="mt-4 w-full">
