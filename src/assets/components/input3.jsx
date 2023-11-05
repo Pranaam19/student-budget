@@ -19,8 +19,11 @@ import { DialogActions } from "@mui/material";
 import { DialogContent } from "@mui/material";
 import { DialogTitle } from "@mui/material";
 import { Dialog } from "@mui/material";
+import { useAddTransaction } from "../../hooks/useAddTransaction";
 
 export default function Input() {
+  const { addTransaction } = useAddTransaction();
+
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -37,20 +40,28 @@ export default function Input() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const amount = document.getElementById("amount-input").value;
-    const reason = document.getElementById("expense-reason").value;
+    const amount = document.getElementById("amount").value;
+    const description = document.getElementById("description").value;
     const expenseType = alignment;
     const date = value.format("L");
 
-    console.log(amount, reason, expenseType, date);
+    console.log(amount, description, expenseType, date);
+
+    addTransaction({
+      amount: 100,
+      description: "haircut",
+      type: "debit",
+      date: "2021-10-10",
+    });
+
     handleFormClose(event);
   };
 
   const handleFormClose = (event) => {
     setValue("debit");
     setAlignment("debit");
-    document.getElementById("amount-input").value = "";
-    document.getElementById("expense-reason").value = "";
+    document.getElementById("amount").value = "";
+    document.getElementById("description").value = "";
     setOpen(false);
   };
 
@@ -77,9 +88,9 @@ export default function Input() {
           </ToggleButtonGroup>
 
           <FormControl fullWidth sx={{ m: 1 }}>
-            <InputLabel htmlFor="amount-input">Amount</InputLabel>
+            <InputLabel htmlFor="amount">Amount</InputLabel>
             <OutlinedInput
-              id="amount-input"
+              id="amount"
               startAdornment={
                 <InputAdornment position="start">₹</InputAdornment>
               }
@@ -96,8 +107,8 @@ export default function Input() {
             autoComplete="off"
           >
             <TextField
-              id="expense-reason"
-              label="Reason"
+              id="description"
+              label="Description"
               variant="outlined"
               fullWidth
             />

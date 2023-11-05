@@ -28,7 +28,7 @@ function Home() {
         <div className="bg-white rounded-lg shadow p-2 text-center">
           <h2 className="text-lg font-semibold">Current Balance</h2>
           <p className="text-2xl font-bold text-green-600">
-            RS{balance.toFixed(2)}
+            ₹{balance.toFixed(2)}
           </p>
           <div className="flex justify-between mt-2">
             <Input />
@@ -39,13 +39,13 @@ function Home() {
             <div className="bg-white rounded-lg shadow p-2 w-1/2">
               <h2 className="text-lg font-semibold">Expense</h2>
               <p className="text-2xl font-bold text-red-600">
-                RS{expenseAmount.toFixed(2)}
+                ₹{expenseAmount.toFixed(2)}
               </p>
             </div>
             <div className="bg-white rounded-lg shadow p-2 w-1/2">
               <h2 className="text-lg font-semibold">Income</h2>
               <p className="text-2xl font-bold text-green-600">
-                RS{incomeAmount.toFixed(2)}
+                ₹{incomeAmount.toFixed(2)}
               </p>
             </div>
           </div>
