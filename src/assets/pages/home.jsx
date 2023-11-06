@@ -2,6 +2,16 @@ import React, { useState } from "react";
 // import InputDialog from "../components/input";
 import Input from "../components/input3";
 
+
+
+const REDIRECT_PAGE = "/home";
+
+//Configure FirebaseUI
+const uiConfig = {
+  signInFlow: "popup",
+  signInSuccessUrl: REDIRECT_PAGE,
+};
+
 function Home() {
   const [balance, setBalance] = useState(500); // Initial balance, you can change this as needed
   const [expenseAmount, setExpenseAmount] = useState(0);
