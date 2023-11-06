@@ -24,7 +24,7 @@ function App() {
             <Route path="/balance" element={<Balance />} />
           </Routes>
         </Router>
-        <BottomNavbar />
+        {window.location.pathname !== "/" ? <BottomNavbar /> : null}
       </div>
     </>
   );

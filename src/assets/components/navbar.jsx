@@ -50,6 +50,9 @@ function BottomNavbar() {
         <Button color="inherit" href="/transaction">
           Transaction
         </Button>
+        <Button color="inherit" href="/">
+          Logout
+        </Button>
       </Toolbar>
     </AppBar>
   );
